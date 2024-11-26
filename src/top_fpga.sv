@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module top_basys (
+module top_fpga (
     input logic clk,
     input logic reset,
     input logic btnU,
@@ -78,7 +78,7 @@ module top_basys (
       .an (an)
   );
 
-  reg pulseU, pulseD;
+  logic pulseU, pulseD;
   pulse_controller pulse_control_clk (
       .clk(clk),
       .sw_input(btnU),

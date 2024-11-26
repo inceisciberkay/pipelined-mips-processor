@@ -4,11 +4,11 @@ module pulse_controller (
     input clk,
     input sw_input,
     input clear,
-    output reg clk_pulse
+    output logic clk_pulse
 );
 
-  reg [2:0] state, nextstate;
-  reg [27:0] CNT;
+  logic [2:0] state, nextstate;
+  logic [27:0] CNT;
   wire cnt_zero;
 
   always @(posedge clk, posedge clear)
@@ -55,7 +55,7 @@ module pulse_controller (
       3'b100: CNT <= CNT - 1;
     endcase
 
-  //  reduction operator |CNT gives the OR of all bits in the CNT register
+  // reduction operator |CNT gives the OR of all bits in the CNT register
   assign cnt_zero = ~|CNT;
 
 endmodule
